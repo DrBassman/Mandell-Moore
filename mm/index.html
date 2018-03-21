@@ -1,0 +1,212 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+  <script type="text/javascript" src="mm.js"></script>
+  <style type="text/css">
+.od {
+  font-family: Verdana;
+  background-color: #abdb9c;
+}
+.os {
+  background-color: #6898d2;
+  font-family: Verdana;
+}
+  </style><title></title></head><body>
+<table border="5">
+
+  <tbody>
+    <tr style="font-family: Verdana;">
+      <td style="text-align: center;" colspan="9">
+      <h1>Ryan's Mandell-Moore Bitoric Lens Calculator</h1>
+      </td>
+    </tr>
+    <tr>
+      <td><br>
+      </td>
+      <td class="od" colspan="4" style="text-align: center;">
+      <h2>OD</h2>
+</td>
+      <td class="os" colspan="4" style="text-align: center;">
+      <h2>OS</h2>
+</td>
+    </tr>
+    <tr>
+      <td>1. Keratometry</td>
+      <td class="od" colspan="4" style="text-align: center;"> <input tabindex="1" class="od" id="kOD1" maxlength="5" size="5" type="text">@<input tabindex="2" class="od" id="kAngleOD1" maxlength="3" size="3" type="text">; <input tabindex="3" class="od" id="kOD2" maxlength="5" size="5" type="text">@<input tabindex="4" class="od" id="kAngleOD2" maxlength="3" size="3" type="text"> </td>
+      <td class="os" colspan="4" style="text-align: center;"> <input tabindex="8" class="os" id="kOS1" maxlength="5" size="5" type="text">@<input tabindex="9" class="os" id="kAngleOS1" maxlength="3" size="3" type="text">; <input tabindex="10" class="os" id="kOS2" maxlength="5" size="5" type="text">@<input tabindex="11" class="os" id="kAngleOS2" maxlength="3" size="3" type="text"> </td>
+    </tr>
+    <tr>
+      <td>2. Spectacle Rx (minus cyl form)</td>
+      <td class="od" colspan="4" style="text-align: center;"><input tabindex="5" class="od" id="manifestSphOD" maxlength="7" size="7" type="text"> <input tabindex="6" class="od" id="manifestCylOD" maxlength="7" size="7" type="text"> x <input tabindex="7" class="od" id="manifestAngOD" maxlength="7" size="7" type="text"></td>
+      <td class="os" colspan="4" style="text-align: center;"><input tabindex="12" class="os" id="manifestSphOS" maxlength="7" size="7" type="text"> <input tabindex="13" class="os" id="manifestCylOS" maxlength="7" size="7" type="text"> x <input tabindex="14" class="os" id="manifestAngOS" maxlength="7" size="7" type="text"></td>
+    </tr>
+<tr>
+      <td colspan="9" style="text-align: center;"><input tabindex="15" value="Calculate" onclick="updateTable()" type="button"></td>
+    </tr>
+    <tr>
+      <td><br>
+      </td>
+      <td style="font-weight: bold; text-decoration: underline; text-align: center;" class="od">Flattest K</td>
+      <td style="font-weight: bold; text-decoration: underline; text-align: center;" class="od">Sphere</td>
+      <td style="font-weight: bold; text-decoration: underline; text-align: center;" class="od">Steepest K</td>
+      <td style="font-weight: bold; text-decoration: underline; text-align: center;" class="od">Sphere+Cylinder</td>
+      <td style="font-weight: bold; text-decoration: underline; text-align: center;" class="os">Flattest K</td>
+      <td style="text-align: center; text-decoration: underline; font-weight: bold;" class="os">Sphere</td>
+      <td style="font-weight: bold; text-decoration: underline; text-align: center;" class="os">Steepest K</td>
+      <td style="font-weight: bold; text-decoration: underline; text-align: center;" class="os">Sphere+Cylinder</td>
+    </tr>
+    <tr>
+      <td>3. Enter K:</td>
+      <td class="od" id="formODFlatK"><br>
+</td>
+      <td class="od"><br>
+      </td>
+      <td class="od" id="formODSteepK"><br>
+</td>
+      <td class="od"><br>
+      </td>
+      <td class="os" id="formOSFlatK"><br>
+</td>
+      <td class="os"><br>
+      </td>
+      <td class="os" id="formOSSteepK"><br>
+</td>
+      <td class="os"><br>
+      </td>
+    </tr>
+    <tr>
+      <td>4. Enter Spectacle Power:</td>
+      <td class="od"><br>
+      </td>
+      <td class="od" id="formODSph"><br>
+</td>
+      <td class="od"><br>
+      </td>
+      <td class="od" id="formODSphCyl"><br>
+</td>
+      <td class="os"><br>
+      </td>
+      <td class="os" id="formOSSph"><br>
+</td>
+      <td class="os"><br>
+      </td>
+      <td class="os" id="formOSSphCyl"><br>
+</td>
+    </tr>
+    <tr>
+      <td>5. Vertex Adjust Line 4:</td>
+      <td class="od"><br>
+      </td>
+      <td class="od" id="formODSphVertex"><br>
+</td>
+      <td class="od"><br>
+      </td>
+      <td class="od" id="formODSphCylVertex"><br>
+</td>
+      <td class="os"><br>
+      </td>
+      <td class="os" id="formOSSphVertex"><br>
+</td>
+      <td class="os"><br>
+      </td>
+      <td class="os" id="formOSSphCylVertex"><br>
+</td>
+    </tr>
+    <tr>
+      <td>6. Insert Fit Factor:</td>
+      <td style="text-align: center;" class="od">(-)0.25 D</td>
+      <td style="text-align: center;" class="od">(+)0.25 D</td>
+      <td style="text-align: center;" class="od">(-)0.75 D</td>
+      <td style="text-align: center;" class="od">(+)0.75 D</td>
+      <td style="text-align: center;" class="os">(-)0.25 D</td>
+      <td style="text-align: center;" class="os">(+)0.25 D</td>
+      <td style="text-align: center;" class="os">(-)0.75 D</td>
+      <td style="text-align: center;" class="os">(+)0.75 D</td>
+    </tr>
+    <tr>
+      <td>Add Lines:</td>
+      <td style="text-align: center;" class="od">3 &amp; 6</td>
+      <td style="text-align: center;" class="od">5 &amp; 6</td>
+      <td style="text-align: center;" class="od">3 &amp; 6</td>
+      <td style="text-align: center;" class="od">5 &amp; 6</td>
+      <td style="text-align: center;" class="os">3 &amp; 6</td>
+      <td style="text-align: center;" class="os">5 &amp; 6</td>
+      <td style="text-align: center;" class="os">3 &amp; 6</td>
+      <td style="text-align: center;" class="os">5 &amp; 6</td>
+    </tr>
+    <tr>
+      <td>7. Final CL Rx:</td>
+      <td class="od" id="rxODFlatK"><br>
+</td>
+      <td class="od" id="rxODPower1"><br>
+</td>
+      <td class="od" id="rxODSteepK"><br>
+</td>
+      <td class="od" id="rxODPower2"><br>
+</td>
+      <td class="os" id="rxOSFlatK"><br>
+</td>
+      <td class="os" id="rxOSPower1"><br>
+</td>
+      <td class="os" id="rxOSSteepK"><br>
+</td>
+      <td class="os" id="rxOSPower2"><br>
+</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;" id="rxODFlatMM" class="od"><br>
+      </td>
+      <td style="vertical-align: top;" id="rxODPower1b" class="od"><br>
+      </td>
+      <td style="vertical-align: top;" id="rxODSteepMM" class="od"><br>
+      </td>
+      <td style="vertical-align: top;" id="rxODPower2b" class="od"><br>
+      </td>
+      <td style="vertical-align: top;" class="os" id="rxOSFlatMM"><br>
+      </td>
+      <td style="vertical-align: top;" class="os" id="rxOSPower1b"><br>
+      </td>
+      <td style="vertical-align: top;" class="os" id="rxOSSteepMM"><br>
+      </td>
+      <td style="vertical-align: top;" class="os" id="rxOSPower2b"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;" id="odPropLens" class="od" colspan="4" rowspan="1"><br>
+      </td>
+      <td style="vertical-align: top;" id="osPropLens" class="os" colspan="4" rowspan="1"><br>
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="9" rowspan="1" style="vertical-align: top;">
+      <p>Based on the <a href="http://www.gpli.info/education/mandell.htm">Mandell-Moore form</a> located on the <a href="http://www.gpli.info/">GPLI web site</a>.</p>
+
+      <p>Copyright 2012, Ryan K. Losh, ALL RIGHTS RESERVED.</p>
+
+      <p>Anyone who uses this tool shall be solely responsible for VERIFYING
+the results produced.&nbsp; <br>
+A computer with a nifty web tool shall not be a
+substitute for the valuable clinical judgement of the person using it.<br>
+Author hereby disclaims ALL liability for anyone using its results to the fullest extent.<br>
+      </p>
+
+      <p>Permission hereby granted to copy and use this tool, provided NONE of the above messages are removed or changed.</p>
+      <p>Instructions:<br>
+      </p>
+      <ul>
+        <li>Enter K values (in Diopters) into line 1</li>
+        <li>Enter manifest Rx values (using minus-cyl) into line 2</li>
+        <li>Press the "Calculate" button above.</li>
+        <li>Table will auto-populate and give suggested parameters for bitoric contact lenses<br>
+        </li>
+      </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</body></html>
