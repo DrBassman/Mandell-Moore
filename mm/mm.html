@@ -30,12 +30,26 @@
 </td>
     </tr>
     <tr>
-      <td>1. Keratometry</td>
+      <td>1. Lens Size:</td>
+	  <td class="od"></td>
+      <td class="od" colspan="3" style="text-align: left;">
+	    <input type="radio" id="odSm" name="odSize" value="0">Small (8.0mm to 8.6mm)<br>
+	    <input type="radio" id="odMed" name="odSize" value="1">Medium (8.7mm to 9.3mm)<br>
+		<input type="radio" id="odLrg" name="odSize" value="2" checked>Large (9.4mm to 10.2mm)
+	  </td>
+	  <td class="os"></td>
+      <td class="os" colspan="3" style="text-align: left;">
+	    <input type="radio" id="osSm" name="osSize" value="0">Small (8.0mm to 8.6mm)<br>
+		<input type="radio" id="osMed" name="osSize" value="1">Medium (8.7mm to 9.3mm)<br>
+		<input type="radio" id="osLrg" name="osSize" value="2" checked>Large (9.4mm to 10.2mm)
+	  </td>
+    <tr>
+      <td>2. Keratometry</td>
       <td class="od" colspan="4" style="text-align: center;"> <input tabindex="1" class="od" id="kOD1" maxlength="5" size="5" type="text">@<input tabindex="2" class="od" id="kAngleOD1" maxlength="3" size="3" type="text">; <input tabindex="3" class="od" id="kOD2" maxlength="5" size="5" type="text">@<input tabindex="4" class="od" id="kAngleOD2" maxlength="3" size="3" type="text"> </td>
       <td class="os" colspan="4" style="text-align: center;"> <input tabindex="8" class="os" id="kOS1" maxlength="5" size="5" type="text">@<input tabindex="9" class="os" id="kAngleOS1" maxlength="3" size="3" type="text">; <input tabindex="10" class="os" id="kOS2" maxlength="5" size="5" type="text">@<input tabindex="11" class="os" id="kAngleOS2" maxlength="3" size="3" type="text"> </td>
     </tr>
     <tr>
-      <td>2. Spectacle Rx (minus cyl form)</td>
+      <td>3. Spectacle Rx (minus cyl form)</td>
       <td class="od" colspan="4" style="text-align: center;"><input tabindex="5" class="od" id="manifestSphOD" maxlength="7" size="7" type="text"> <input tabindex="6" class="od" id="manifestCylOD" maxlength="7" size="7" type="text"> x <input tabindex="7" class="od" id="manifestAngOD" maxlength="7" size="7" type="text"></td>
       <td class="os" colspan="4" style="text-align: center;"><input tabindex="12" class="os" id="manifestSphOS" maxlength="7" size="7" type="text"> <input tabindex="13" class="os" id="manifestCylOS" maxlength="7" size="7" type="text"> x <input tabindex="14" class="os" id="manifestAngOS" maxlength="7" size="7" type="text"></td>
     </tr>
@@ -55,7 +69,7 @@
       <td style="font-weight: bold; text-decoration: underline; text-align: center;" class="os">Sphere+Cylinder</td>
     </tr>
     <tr>
-      <td>3. Enter K:</td>
+      <td>4. Enter K:</td>
       <td class="od" id="formODFlatK"><br>
 </td>
       <td class="od"><br>
@@ -74,7 +88,7 @@
       </td>
     </tr>
     <tr>
-      <td>4. Enter Spectacle Power:</td>
+      <td>5. Enter Spectacle Power:</td>
       <td class="od"><br>
       </td>
       <td class="od" id="formODSph"><br>
@@ -93,7 +107,7 @@
 </td>
     </tr>
     <tr>
-      <td>5. Vertex Adjust Line 4:</td>
+      <td>6. Vertex Adjust Line 5:</td>
       <td class="od"><br>
       </td>
       <td class="od" id="formODSphVertex"><br>
@@ -112,29 +126,29 @@
 </td>
     </tr>
     <tr>
-      <td>6. Insert Fit Factor:</td>
-      <td style="text-align: center;" class="od">(-)0.25 D</td>
-      <td style="text-align: center;" class="od">(+)0.25 D</td>
-      <td style="text-align: center;" class="od">(-)0.75 D</td>
-      <td style="text-align: center;" class="od">(+)0.75 D</td>
-      <td style="text-align: center;" class="os">(-)0.25 D</td>
-      <td style="text-align: center;" class="os">(+)0.25 D</td>
-      <td style="text-align: center;" class="os">(-)0.75 D</td>
-      <td style="text-align: center;" class="os">(+)0.75 D</td>
+      <td>7. Insert Fit Factor:</td>
+      <td style="text-align: left;" id="odfkff" class="od"></td>
+      <td style="text-align: left;" id="odsphereff" class="od"></td>
+      <td style="text-align: left;" id="odskff" class="od"></td>
+      <td style="text-align: left;" id="odsphcylff" class="od"></td>
+      <td style="text-align: left;" id="osfkff" class="os"></td>
+      <td style="text-align: left;" id="ossphereff" class="os"></td>
+      <td style="text-align: left;" id="osskff" class="os"></td>
+      <td style="text-align: left;" id="ossphcylff" class="os"></td>
     </tr>
     <tr>
       <td>Add Lines:</td>
-      <td style="text-align: center;" class="od">3 &amp; 6</td>
-      <td style="text-align: center;" class="od">5 &amp; 6</td>
-      <td style="text-align: center;" class="od">3 &amp; 6</td>
-      <td style="text-align: center;" class="od">5 &amp; 6</td>
-      <td style="text-align: center;" class="os">3 &amp; 6</td>
-      <td style="text-align: center;" class="os">5 &amp; 6</td>
-      <td style="text-align: center;" class="os">3 &amp; 6</td>
-      <td style="text-align: center;" class="os">5 &amp; 6</td>
+      <td style="text-align: center;" class="od">4 &amp; 7</td>
+      <td style="text-align: center;" class="od">6 &amp; 7</td>
+      <td style="text-align: center;" class="od">4 &amp; 7</td>
+      <td style="text-align: center;" class="od">6 &amp; 7</td>
+      <td style="text-align: center;" class="os">4 &amp; 7</td>
+      <td style="text-align: center;" class="os">6 &amp; 7</td>
+      <td style="text-align: center;" class="os">4 &amp; 7</td>
+      <td style="text-align: center;" class="os">6 &amp; 7</td>
     </tr>
     <tr>
-      <td>7. Final CL Rx:</td>
+      <td>8. Final CL Rx:</td>
       <td class="od" id="rxODFlatK"><br>
 </td>
       <td class="od" id="rxODPower1"><br>
@@ -183,7 +197,9 @@
 
     <tr>
       <td colspan="9" rowspan="1" style="vertical-align: top;">
-      <p>Based on the <a href="http://www.gpli.info/education/mandell.htm">Mandell-Moore form</a> located on the <a href="http://www.gpli.info/">GPLI web site</a>.</p>
+      <p>Based on the <a href="http://www.gpli.info/education/mandell.htm">Mandell-Moore form</a> located on the <a href="http://www.gpli.info/">GPLI web site</a>.
+      <br>&emsp;Updated 03/22/2018 with information from Tom Quinn, O.D.'s 03/20/2018 GPLI webinar presentation.</br>
+      </p>
 
       <p>Copyright 2012, Ryan K. Losh, ALL RIGHTS RESERVED.</p>
 
@@ -209,4 +225,5 @@ Author hereby disclaims ALL liability for anyone using its results to the fulles
   </tbody>
 </table>
 <br>
-</body></html>
+</body>
+</html>
